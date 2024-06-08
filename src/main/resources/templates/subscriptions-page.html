@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link data-default-icon="https://static.cdninstagram.com/rsrc.php/v3/yI/r/VsNE-OHk_8a.png" rel="icon"
+          sizes="192x192" href="https://static.cdninstagram.com/rsrc.php/v3/yI/r/VsNE-OHk_8a.png"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+        }
+
+        .search-container {
+            text-align: center;
+            margin-top: 30px;
+            margin-left: 600px;
+        }
+
+        .content {
+            margin-left: 450px;
+            padding: 20px;
+            justify-content: center;
+            max-width: 800px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border-radius: 20px;
+            border: 1px solid #dbdbdb;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-container input[type="text"]:focus {
+            border-color: #0095f6;
+        }
+
+        .search-container button {
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: none;
+            background-color: #0095f6;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-container button:hover {
+            background-color: #007acc;
+        }
+
+        .search-container button {
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: none;
+            background-color: #0095f6;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-container button:hover {
+            background-color: #007acc;
+        }
+
+
+        .post {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .post img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .post-content {
+            padding: 10px;
+        }
+
+        .post-content h3 {
+            margin-top: 0;
+            font-size: 18px;
+        }
+
+        .post-content p {
+            margin-bottom: 10px;
+        }
+
+        .interaction {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .like-btn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            color: #333;
+        }
+
+        .like-btn i {
+            margin-right: 5px;
+        }
+
+        .comment-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .comment-link:hover {
+            color: #555;
+        }
+
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .user-profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-right: 40px;
+            border: 3px solid #000000;
+        }
+
+        .profile-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-info h2 {
+            font-size: 24px;
+            margin-right: 20px;
+        }
+
+        .edit-profile a {
+            text-decoration: none;
+            color: #0095f6;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .edit-profile a:hover {
+            background-color: #dbdbdb;
+        }
+
+        .stats {
+            display: flex;
+            margin-bottom: 10px;
+            a{
+                text-decoration: none;
+            }
+        }
+
+        .stats p {
+            margin-right: 20px;
+            font-size: 16px;
+        }
+
+
+        .post {
+            background-color: #ffffff;
+            border: 1px solid #dbdbdb;
+            border-radius: 5px;
+            padding: 15px;
+        }
+
+        .post img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #ffffff;
+            border-top: 1px solid #dbdbdb;
+            padding: 12px 24px;
+            text-align: center;
+        }
+
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            width: 100%;
+            border-radius: 20px;
+            border: 1px solid #dbdbdb;
+            outline: none;
+        }
+
+
+
+        .search-results p {
+            margin-bottom: 5px;
+        }
+
+        .search-results img {
+            max-width: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #fafafa;
+            border-right: 1px solid #dbdbdb;
+            padding: 20px;
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: "Anton", sans-serif;
+            font-style: normal;
+        }
+
+        .menu-item {
+            margin-bottom: 10px;
+        }
+
+        .menu-item a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            display: block;
+            padding: 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .menu-item a:hover {
+            background-color: #dbdbdb;
+        }
+
+
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #dbdbdb;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+
+        .post img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #ffffff;
+            border-top: 1px solid #dbdbdb;
+            padding: 12px 24px;
+            text-align: center;
+        }
+
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            width: 100%;
+            border-radius: 20px;
+            border: 1px solid #dbdbdb;
+            outline: none;
+        }
+
+
+        .search-results p {
+            margin-bottom: 5px;
+        }
+
+        .search-results img {
+            max-width: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+
+        .post img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+
+        .post-content h3 {
+            margin-top: 0;
+            font-size: 18px;
+        }
+
+        .post-content p {
+            margin-bottom: 10px;
+        }
+
+
+        .like-btn i {
+            margin-right: 5px;
+        }
+
+
+
+        .search-container {
+            text-align: center; /* Выравниваем содержимое по центру */
+            margin-top: 30px; /* Отступ сверху формы */
+            margin-left: 150px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block; /* Отображаем метку как блочный элемент */
+            margin-bottom: 5px; /* Отступ между меткой и полем ввода */
+        }
+
+        input[type="text"] {
+            width: 250px; /* Ширина поля ввода */
+            padding: 8px; /* Отступы внутри поля ввода */
+            margin-bottom: 10px; /* Отступ снизу поля ввода */
+            border-radius: 5px; /* Скругление углов поля ввода */
+            border: 1px solid #ccc; /* Граница поля ввода */
+        }
+
+        button[type="submit"] {
+            padding: 8px 16px; /* Отступы внутри кнопки */
+            border: none; /* Убираем границу кнопки */
+            border-radius: 5px; /* Скругление углов кнопки */
+            background-color: #007bff; /* Цвет фона кнопки */
+            color: #fff; /* Цвет текста на кнопке */
+            cursor: pointer; /* Указатель при наведении на кнопку */
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3; /* Цвет кнопки при наведении */
+        }
+
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">Instagram</div>
+</header>
+
+<!-- Модальное окно для отображения результатов поиска -->
+
+<div class="container">
+    <div class="sidebar">
+        <nav>
+            <ul>
+                <li class="menu-item"><a href="#" th:href="@{/api/main/{userId}(userId=${userId})}"><i class="fa fa-home"></i> Home</a></li>
+                <li class="menu-item"><a href="#" th:href="@{/search/createSearch/{userId}(userId=${userId})}"><i class="fa fa-search"></i> Search</a></li>
+                <li class="menu-item"><a href="#"><i class="fa fa-envelope"></i> Messages</a></li>
+                <li class="menu-item"><a href="#" th:href="@{/posts/newPost/{userId}(userId=${userId})}"><i class="fa fa-plus"></i> New POST</a>
+                </li>
+                <li class="menu-item"><a href="#" th:href="@{/home/profUser/{userId}(userId=${userId})}"><i class="fas fa-user"></i> Profile</a>
+                </li>
+                <li class="menu-item"><a href="#" th:href="@{/api/page}"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="content">
+
+        <!-- Профиль пользователя -->
+        <div class="userss" th:each="currentUser : ${users}">
+            <div class="user-profile">
+                <img th:src="${currentUser.getUserInfo().getImage()}" alt="Profile Picture">
+                <div>
+                    <div class="profile-info">
+                        <a th:href="@{/home/someUser/{userId}/{otherId}(userId=${userId},otherId=${currentUser.getId()})}">
+                            <h2 th:text="${currentUser.userName}"></h2></a>
+                        <div class="edit-profile">
+                            <form th:action="@{/home/subscriber/{userId}/{otherId}(userId=${userId},otherId=${currentUser.getId()})}" th:method="get">
+                                <button type="submit" class="subscribe-btn">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <p> Posts: <span th:text="${currentUser.getPosts().size()}"></span></p>
+                        <p><a href="#" th:href="@{/home/someUserSubscribers/{userId}/{curUserId}(userId=${userId},curUserId=${currentUser.getId()})}"> Followers: <span th:text="${currentUser.getFollower().getSubscribers().size()}"></span></a></p>
+                        <P><a href="#" th:href="@{/home/someUserSubscriptions/{userId}/{curUserId}(userId=${userId},curUserId=${currentUser.getId()})}"> Following: <span th:text="${currentUser.getFollower().getSubscriptions().size()}"></span></a></P>
+                    </div>
+                    <p th:text="${currentUser.userInfo.fullName}"></p>
+                    <p th:text="${currentUser.userInfo.biography}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<footer>
+    <p>&copy; <span id="currentYear"></span> Instagram</p>
+</footer>
+<script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    function toggleLike(button) {
+        var likeIcon = button.querySelector('i');
+        var likeCountSpan = button.querySelector('.like-count');
+
+        var likeCountValue = parseInt(likeCountSpan.textContent);
+        if (isNaN(likeCountValue)) {
+            likeCountValue = 0;
+        }
+
+        var isLiked = likeIcon.classList.contains('fas'); // Проверяем класс 'fas', так как 'far' используется для пустой иконки
+
+        if (!isLiked) {
+            likeIcon.classList.remove('far');
+            likeIcon.classList.add('fas');
+            likeIcon.style.color = 'red'; // Устанавливаем красный цвет
+            likeCountSpan.textContent = likeCountValue + 1;
+        } else {
+            likeIcon.classList.remove('fas');
+            likeIcon.classList.add('far');
+            likeIcon.style.color = ''; // Возвращаем цвет по умолчанию
+            likeCountSpan.textContent = likeCountValue - 1;
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var form = document.getElementById('subscriptionForm');
+        var button = document.getElementById('subscribeButton');
+        var subscribed = false;
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Предотвращаем отправку формы, чтобы избежать перезагрузки страницы
+            // В этом месте можно добавить дополнительную логику, если это необходимо, например, отправка AJAX-запроса на сервер
+            subscribed = !subscribed;
+            updateButtonLabel();
+        });
+
+        function updateButtonLabel() {
+            if (subscribed) {
+                button.textContent = 'Unsubscribe';
+            } else {
+                button.textContent = 'Subscribe';
+            }
+        }
+    });
+</script>
+</body>
+</html>
