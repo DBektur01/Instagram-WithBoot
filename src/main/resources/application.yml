@@ -2,9 +2,9 @@ server:
     port: 8080
 spring:
     datasource:
-        password: postgres
         url: jdbc:postgresql://localhost:5432/java13
         username: postgres
+        password: postgres
     jpa:
         hibernate:
             ddl-auto: update

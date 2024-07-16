@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete User</title>
+    <title>Instagram</title>
     <link data-default-icon="https://static.cdninstagram.com/rsrc.php/v3/yI/r/VsNE-OHk_8a.png" rel="icon"
           sizes="192x192" href="https://static.cdninstagram.com/rsrc.php/v3/yI/r/VsNE-OHk_8a.png"/>
     <style>
@@ -67,7 +67,7 @@
     <h3>To delete an account, write a password</h3>
     <form th:action="@{/api/deleteUser/{userId}(userId=${curUser})}" method="get">
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required minlength="6" placeholder="Enter your password">
+        <input type="password" id="password" name="password" required                                                                                                                                            placeholder="Enter your password">
         <button type="submit">delete User</button>
     </form>
 </div>

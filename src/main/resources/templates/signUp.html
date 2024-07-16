@@ -1,275 +1,329 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="nrSMEdM_INTzUj4KNn1zvAJIlgsIij9vbwTfOa67FIY"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Instagram Clone feito com HTML e CSS"/>
+    <meta name="author" content="Luan Fernando"/>
+    <title>Instagram</title>
     <link data-default-icon="https://static.cdninstagram.com/rsrc.php/v3/yI/r/VsNE-OHk_8a.png" rel="icon"
           sizes="192x192" href="https://static.cdninstagram.com/rsrc.php/v3/yI/r/VsNE-OHk_8a.png"/>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram </title>
-
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-image: url('https://t4.ftcdn.net/jpg/04/32/79/81/360_F_432798136_E0wHKsUhhIBNKo2Jc8h75XRBG2ahrukv.jpg');
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fafafa;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 90vh;
-            margin: 0;
-        }
-
-        .container {
-            background-color: #fff;
-            border: 1px solid #dbdbdb;
-            padding: 40px;
-            text-align: center;
-            width: 300px;
-            height: 86vh;
-            margin-top: 70px;
-        }
-
-        .container h1 {
-            font-family: 'Billabong', cursive;
-            font-size: 50px;
-            margin-bottom: 20px;
-        }
-
-        .container .subtitle {
-            font-size: 17px;
-            color: #8e8e8e;
-            margin-bottom: 20px;
-        }
-
-        .container input {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #dbdbdb;
-            border-radius: 3px;
-            box-sizing: border-box;
-        }
-
-        .container .button {
-            width: 100%;
-            padding: 10px;
-            background-color: #3897f0;
-            border: none;
-            color: white;
-            font-weight: bold;
-            border-radius: 3px;
-            cursor: pointer;
-            margin-top: 10px;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .container .divider {
-            margin: 20px 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .container .divider::before,
-        .container .divider::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background-color: #dbdbdb;
-        }
-
-        .container .divider::before {
-            margin-right: 10px;
-        }
-
-        .container .divider::after {
-            margin-left: 10px;
-        }
-
-        .container a {
-            color: #00376b;
-            text-decoration: none;
-        }
-
-        .container .terms {
-            color: #8e8e8e;
-            font-size: 12px;
-            margin: 15px 0;
-        }
-
-        .container .login {
-            margin-top: 20px;
-            color: #262626;
-            font-size: 14px;
-        }
-
-        .container .error-message {
-            font-size: 13px;
-            color: red;
-            text-align: start;
-        }
-
-
-        .install-app {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .install-app p {
-            font-size: 14px;
-            color: #262626;
-        }
-
-        .install-app a img {
-            width: 136px;
-            margin: 5px;
-        }
-    </style>
 </head>
+<style>
+    h1, h2, h3, p, ul {
+        margin: 0;
+    }
+
+    ul {
+        padding: 0;
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #FAFAFA;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: #262626;
+    }
+
+    .container {
+        width: 405px;
+        margin: 15px auto 30px;
+    }
+
+    .logo-instagram {
+        margin: 30px 0 10px 0;
+    }
+
+    .form-login {
+        text-align: center;
+        font-size: 14px;
+        margin-top: 3px;
+    }
+
+    .form-login form {
+        text-align: center;
+        background-color: #fff;
+        padding: 1.25rem 2.5rem;
+        border: 1px solid rgb(219, 219, 219);
+        margin-bottom: 10px;
+    }
+
+    .form-login input {
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 0.8rem;
+        padding: 13px 0 13px 8px;
+        border: 1px solid #dbdbdb;
+        margin-bottom: 4px;
+        border-radius: 3px;
+        outline: none;
+    }
+
+    .form-login button {
+        color: #fff;
+        width: 100%;
+        margin-top: 15px;
+        background: #0195f6;
+        border: none;
+        padding: 8px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .form-login button:disabled {
+        background: #B2DFFC;
+        cursor: default;
+    }
+
+    .or {
+        margin: 1rem 0 1.6rem;
+        font-size: 13px;
+        color: #8E8E8E;
+        text-transform: uppercase;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .or::after,
+    .or::before {
+        content: "";
+        width: 105px;
+        height: 1px;
+        background: #dbdbdb;
+    }
+
+    .login-facebook {
+        background-color: #0095f6;
+        color: #FFFFFF;
+        font-weight: 600;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px auto 18px;
+        padding: 7px 16px;
+        border-radius: 8px;
+        height: 18px;
+    }
+
+    .login-facebook img {
+        width: 18px;
+        height: 18px;
+        margin-right: 10px;
+    }
+
+    .login-facebook:hover {
+        background-color: #1877F2;
+    }
+
+    .forgot-pass {
+        font-size: 0.8rem;
+        color: #385185;
+    }
+
+    .signup {
+        border: 1px solid #dbdbdb;
+        background-color: #fff;
+        padding: 20px 0;
+        margin: 0 0 20px;
+    }
+
+    .signup a {
+        font-weight: 600;
+        color: #0095f6;
+    }
+
+    .get-app {
+        margin-top: 20px;
+
+    }
+
+    .get-app p {
+        font-size: 0.8rem;
+    }
+
+    .get-app img {
+        margin-top: 20px;
+        width: 135px;
+    }
+
+    .clone-page {
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    .footer {
+        text-align: center;
+        margin: 0 auto;
+        font-size: 12px;
+        color: #8e8e8e;
+    }
+
+    .footer a {
+        color: #8e8e8e;
+        display: inline-block;
+        margin: 0 0.375rem 0.625rem;
+    }
+
+    .animation-image {
+        transition: opacity 1s ease-in-out;
+    }
+
+    .img-photo {
+        position: relative;
+    }
+
+    .animation-image {
+        transition: opacity 1s ease-in-out;
+        opacity: 0;
+    }
+
+    .visible {
+        opacity: 1;
+    }
+
+    .register-text {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #737373;
+    }
+
+    .more-details-text {
+        color: #737373;
+        font-size: 12px;
+        font-family: sans-serif;
+    }
+
+    .link-word {
+        color: #00376B;
+    }
+</style>
 <body>
-<div class="container">
-    <h1>Instagram</h1>
-    <div class="subtitle">Sign up to see your friends' photos and videos.</div>
-    <a href="https://www.facebook.com/login" class="button">Login with Facebook</a>
+<main class="container">
+    <section class="form-login">
+        <form th:action="@{/api/save}" th:object="${newUser}" method="POST">
+            <img src="https://i.ibb.co/mzLW1HH/logo.png" class="logo-instagram" alt="Instagram Logo">
+            <p class="register-text">Sign up to see photos and videos from your Friends.</p>
+            <a href="https://www.facebook.com/dialog/oauth?client_id=124024574287414&locale=ru_RU&redirect_uri=https%3A%2F%2Fwww.instagram.com%2Faccounts%2Fsignup%2F&response_type=code%2Cgranted_scopes&scope=email&state=%7B%22fbLoginKey%22%3A%228pj7o810frfo61m2g77c11j8maekzqa931hee84b8m1c9c5xneuy%22%2C%22fbLoginReturnURL%22%3A%22%2Ffxcal%2Fdisclosure%2F%3Fnext%3D%252F%22%7D"
+               class="login-facebook">
+                <img src="https://freepnglogo.com/images/all_img/1713419345White_Facebook_PNG.png"
+                     alt="icon do facebook">Log in with Facebook
+            </a>
+            <div class="or">OR</div>
+            <label>
+                <input type="email" th:field="*{email}" name="email" id="email"
+                       placeholder="Email">
+            </label>
+            <label>
+                <input type="text" th:field="*{phoneNumber}" name="phoneNumber" id="phoneNumber"
+                       placeholder="Phone number">
+            </label>
+<!--            <label>-->
+<!--                <input type="text" th:field="${signUpUserInfo.fullName}" name="fullName" id="fullName"-->
+<!--                       placeholder="First and last name">-->
+<!--            </label>-->
+            <label>
+                <input type="text" th:field="*{userName}" name="username" id="username"
+                       placeholder="Username">
+            </label>
+            <label>
+                <input type="password" th:field="*{password}" name="password" id="password"
+                       placeholder="Password">
+            </label>
+            <p class="more-details-text" style="margin-top: 10px">People who use our service may have <br> uploaded your
+                contact information to Instagram. <a
+                        class="link-word"
+                        href="https://www.facebook.com/help/instagram/261704639352628">More details</a></p>
+            <br>
+            <p class="more-details-text">
+                By registering, you agree to our
+                <a class="link-word"
+                   href="https://help.instagram.com/581066165581870/?locale=ru_RU"
+                   target="_blank"> Terms, </a>
+                <br>
+                <a class="link-word"
+                   href="https://www.facebook.com/privacy/policy" rel="nofollow noreferrer">Privacy Policy </a>
+                and
+                <a class="link-word"
+                   href="https://www.instagram.com/legal/cookies/">Cookie Policy</a>
+            </p>
+            <button type="submit" id="loginBtn" disabled>Sign up</button>
+        </form>
+        <section class="signup">
+            <p>Have an account? <a href="/api/page">Sign in.</a></p>
+        </section>
+        <section class="get-app">
+            <p>Install the application.</p>
+            <a href="https://apps.apple.com/us/app/instagram/id389801252?ct=igweb.loginPage.badge&mt=8&pt=428156&vt=lo">
+                <img src="https://i.ibb.co/wghxzfs/apple-button.png" alt="Instagram on App Store">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.instagram.android&referrer=ig_mid%3D219F464F-9724-4173-B0EA-69DACE191EAF%26utm_campaign%3DloginPage%26utm_content%3Dlo%26utm_source%3Dinstagramweb%26utm_medium%3Dbadge%26original_referrer%3Dhttps%253A%252F%252Fwww.instagram.com%252Faccounts%252Fedit%252F">
+                <img src="https://i.ibb.co/84XNbGN/googleplay-button.png" alt="Instagram on Google Play">
+            </a>
+        </section>
+    </section>
+</main>
 
-    <div class="divider">OR</div>
-    <form action="#" th:action="@{/api/save}" th:object="${newUser}" method="post">
-        <label for="phoneNumber">
-            <input type="text" th:field="*{phoneNumber}" id="phoneNumber" pattern="[+][9][9][6][0-9]{9}"
-                   placeholder="Mobile phone (+996)  " required oninput="validatePhoneNumber()">
-            <div id="phoneNumber-message " class="error-message"></div>
-        </label>
-        <label for="userName">
-            <input type="text" th:field="*{userName}" id="userName" placeholder="First and last name" required>
-        </label>
-        <label>
-            <input type="email" th:field="*{email}" placeholder="Email" required>
+<section class="clone-page">
+    <p>This is a clone of the Instagram page.</p>
+</section>
 
-        </label>
-        <label for="password">
-            <input type="password" th:field="*{password}" id="password" placeholder="Password must be at least 8 characters long." required
-                   oninput="validatePassword()">
-            <div id="password-message" class="error-message"></div>
-        </label>
-        <button type="submit" class="button">Registration</button>
-    </form>
-    <div class="terms">
-        People who use our service may have uploaded your contact information to Instagram. <a
-            href="https://www.facebook.com/help/instagram/261704639352628">More details</a><br>
-        By registering, you accept our <a href="https://help.instagram.com/581066165581870/?locale=ru_RU">Conditions</a>,
-        <a href="https://www.facebook.com/privacy/policy">Privacy Policy</a> и <a
-            href="https://privacycenter.instagram.com/policies/cookies/">Cookie Policy</a>.
-    </div>
-
-    <div class="login">
-        Do you have an account? <a href="http://localhost:8080/api/page">Sign in</a>
-    </div>
-
-
-    <div class="install-app">
-        <p>Install an app.</p>
-        <a href="https://play.google.com/store/apps/details?id=com.instagram.android&referrer=ig_mid%3D972783B0-DE01-4CDF-847B-A7FAD44C4A21%26utm_campaign%3DsignupPage%26utm_content%3Dlo%26utm_source%3Dinstagramweb%26utm_medium%3Dbadge&pli=1"><img
-                src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-                alt="Google Play"></a>
-        <a href="https://apps.apple.com/us/app/instagram/id389801252"><img
-                src="https://static.cdninstagram.com/rsrc.php/v3/y9/r/E_2mQvC3HG-.png" alt="App Store"></a>
-    </div>
-</div>
-
-<script>
-    function validatePhoneNumber() {
-        var emailInput = document.getElementById('phoneNumber');
-        var emailMessage = document.getElementById('phoneNumber-message');
-
-        var phoneNumber = emailInput.value;
-
-        // Проверка +996
-        if (!phoneNumber.startsWith('+996')) {
-            emailMessage.textContent = 'Start with +996';
-        } else {
-            phoneNumberMessage.textContent = '';
-        }
-    }
-
-    function validateEmail() {
-        var emailInput = document.getElementById('email');
-        var emailMessage = document.getElementById('email-message');
-
-        var email = emailInput.value;
-
-        // Проверка на окончание на @gmail.com
-        if (!email.endsWith('@gmail.com')) {
-            emailMessage.textContent = 'Email must end with @gmail.com.';
-        } else {
-            emailMessage.textContent = '';
-        }
-    }
-
-    function validatePassword() {
-        var passwordInput = document.getElementById('password');
-        var passwordMessage = document.getElementById('password-message');
-
-        var password = passwordInput.value;
-
-        // Проверка на длину пароля
-        if (password.length < 8) {
-            passwordMessage.textContent = 'Password must be at least 8 characters long.';
-        } else {
-            // Проверка наличия цифр и спецсимволов в пароле
-            var hasDigit = /\d/.test(password);
-            var hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
-
-            if (!hasDigit || !hasSpecialChar) {
-                passwordMessage.textContent = 'Password must contain at least one digit and one special character.';
-            } else {
-                passwordMessage.textContent = '';
-            }
-        }
-    }
-
-    function validateForm() {
-        // Валидация email
-        var emailInput = document.getElementById('email');
-        var email = emailInput.value;
-
-        // Проверка на окончание на @gmail.com
-        if (!email.endsWith('@gmail.com')) {
-            alert('Email must end with @gmail.com.');
-            return false;
-        }
-
-        // Валидация пароля
-        var passwordInput = document.getElementById('password');
-        var password = passwordInput.value;
-
-        // Проверка на длину пароля, наличие цифр и спецсимволов
-        if (password.length < 8) {
-            alert('Password must be at least 8 characters long.');
-            return false;
-        }
-
-        var hasDigit = /\d/.test(password);
-        var hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
-
-        if (!hasDigit || !hasSpecialChar) {
-            alert('Password must contain at least one digit and one special character.');
-            return false;
-        }
-
-        return true;
-    }
-</script>
-
+<footer class="footer">
+    <nav>
+        <a href="#">Peaksoft</a>
+        <a href="#">Information</a>
+        <a href="#">Blog</a>
+        <a href="#">Career</a>
+        <a href="#">Help</a>
+        <a href="#">API</a>
+        <a href="#">Confidentiality</a>
+        <a href="#">Conditions</a>
+        <a href="#">G/L accounts</a>
+        <a href="#">Hashtags</a>
+        <a href="#">Locations</a>
+        <a href="#">Instagram Lite</a>
+        <a href="#">Uploading contacts and non-users</a>
+        <a href="#">Peaksoft Verified</a>
+    </nav>
+</footer>
 </body>
+<script>
+    const emailInput = document.getElementById('email');
+    const phoneNumberInput = document.getElementById('phoneNumber');
+    // const fullNameInput = document.getElementById('fullName');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const loginBtn = document.getElementById('loginBtn');
+
+    function checkInputs() {
+        const emailValue = emailInput.value.trim();
+        const phoneNumberValue = phoneNumberInput.value.trim();
+        // const fullNameValue = fullNameInput.value.trim();
+        const usernameValue = usernameInput.value.trim();
+        const passwordValue = passwordInput.value.trim();
+
+        if (emailValue !== '' && phoneNumberValue !== '' /*&& fullNameValue !== ''*/ && usernameValue !== '' && passwordValue !== '') {
+            loginBtn.removeAttribute('disabled');
+        } else {
+            loginBtn.setAttribute('disabled', 'disabled');
+        }
+    }
+
+    emailInput.addEventListener('input', checkInputs)
+    phoneNumberInput.addEventListener('input', checkInputs);
+    // fullNameInput.addEventListener('input', checkInputs);
+    usernameInput.addEventListener('input', checkInputs);
+    passwordInput.addEventListener('input', checkInputs);
+</script>
 </html>
