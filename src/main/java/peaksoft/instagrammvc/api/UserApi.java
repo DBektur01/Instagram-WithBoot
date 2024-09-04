@@ -59,7 +59,7 @@ public class UserApi {
     @PostMapping("/save")
     public String signUp(@ModelAttribute("newUser") User user) {
         userService.signUp(user);
-        return "redirect:/api/main/" + user.getId();
+        return "redirect:/api/page/" + user.getId();
 
     }
 
